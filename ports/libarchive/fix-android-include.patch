@@ -1,0 +1,13 @@
+diff --git a/libarchive/CMakeLists.txt b/libarchive/CMakeLists.txt
+index 8062e1d..655d3ab 100644
+--- a/libarchive/CMakeLists.txt
++++ b/libarchive/CMakeLists.txt
+@@ -257,4 +257,8 @@ IF(ENABLE_INSTALL)
+   INSTALL(FILES ${include_HEADERS} DESTINATION include)
+ ENDIF()
+ 
++if (ANDROID)
++  target_include_directories(archive PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../contrib/android/include)
++endif()
++
+ add_subdirectory(test)
